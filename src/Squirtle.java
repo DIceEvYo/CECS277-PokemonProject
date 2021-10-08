@@ -3,11 +3,11 @@
  * @reference Math.Random() Code: https://www.geeksforgeeks.org/java-math-random-method-examples/
  * @reference Pokedex: https://www.pokemon.com/us/pokedex/
  */
-public class Charmander extends Pokemon implements Fire{
+public class Squirtle extends Pokemon implements Water{
 	
-	public Charmander() {
-		//HP is typically 70 on the cards.		
-		super("Charmander", 70);
+	public Squirtle() {
+		//HP ranging from 50 to 60 to 70 on the cards.		
+		super("Squirtle", 60);
 	}
 
 	@Override
@@ -21,45 +21,45 @@ public class Charmander extends Pokemon implements Fire{
 	}
 
 	/**
-	 * Initiates move Ember (Damage Method + Return String)
+	 * Initiates move Water Gun (Damage Method + Return String)
 	 * @param Defending Pokemon
-	 * @return Dialogue for Ember
+	 * @return Dialogue for Water Gun
 	 */
-	public String ember(Pokemon p) {
-		int minD = 0;
+	public String waterGun(Pokemon p) {
+		int minD = 2;
+		int maxD = 5;
+		int rD = maxD - minD + 1;
+		int damage = (int)(Math.random() * rD) + minD;
+		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
+		return this.getName() + " uses water gun on " + p.getName();
+	}
+	
+	/**
+	 * Initiates move Bubble Beam (Damage Method + Return String)
+	 * @param Defending Pokemon
+	 * @return Dialogue for Bubble Beam
+	 */
+	public String bubbleBeam(Pokemon p) {
+		int minD = 1;
 		int maxD = 3;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
-		return this.getName() + " uses ember on " + p.getName();
+		return this.getName() + " uses bubble beam on " + p.getName();
 	}
 	
 	/**
-	 * Initiates move Fire Blast (Damage Method + Return String)
+	 * Initiates move Water Fall (Damage Method + Return String)
 	 * @param Defending Pokemon
-	 * @return Dialogue for Fire Blast
+	 * @return Dialogue for Water Fall
 	 */
-	public String fireBlast(Pokemon p) {
+	public String waterfall(Pokemon p) {
 		int minD = 1;
 		int maxD = 4;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
-		return this.getName() + " uses fire blast on " + p.getName();
-	}
-	
-	/**
-	 * Initiates move Fire Punch (Damage Method + Return String)
-	 * @param Defending Pokemon
-	 * @return Dialogue for Fire Punch
-	 */
-	public String firePunch(Pokemon p) {
-		int minD = 1;
-		int maxD = 3;
-		int rD = maxD - minD + 1;
-		int damage = (int)(Math.random() * rD) + minD;
-		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
-		return this.getName() + " uses fire punch on " + p.getName();
+		return this.getName() + " uses waterfall on " + p.getName();
 	}
 	
 	/**
@@ -72,11 +72,11 @@ public class Charmander extends Pokemon implements Fire{
 		String attack;
 		switch(move) {
 		case 1:
-			return this.ember(p);
+			return this.waterGun(p);
 		case 2:
-			return this.fireBlast(p);
+			return this.bubbleBeam(p);
 		case 3:
-			return this.firePunch(p);
+			return this.waterfall(p);
 		default:
 			//This part of the code should never happen.
 			return "You yelled a move, but nothing happened...";

@@ -1,4 +1,7 @@
-
+/**
+ * 
+ * @reference "Identifying the Interfaces Implemented by a Class": https://www.eg.bucknell.edu/~mead/Java-tutorial/reflect/class/getInterfaces.html
+ */
 abstract class Pokemon extends Entity{
 
 	/**
@@ -34,6 +37,7 @@ abstract class Pokemon extends Entity{
 	abstract int getNumSpecialMenuItems();
 	abstract String specialAttack(Pokemon p, int move);
 	
+	/*TODO
 	public String getBasicMenu(){
 		return null;	
 	}
@@ -53,6 +57,7 @@ abstract class Pokemon extends Entity{
 	public int getNumAttackItems(){
 		return null;	
 	}
+	*/
 	
 	/**
 	 * Initiates move Slam (Damage Method + Return String)
@@ -61,7 +66,8 @@ abstract class Pokemon extends Entity{
 	 */
 	public String slam(Pokemon p){
 		//Feel Free to Adjust Damage
-		this.takeDamage(1);
+		int damage = 1;
+		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
 		return this.getName() + " uses Slam on " + p.getName();	
 	}
 	
@@ -72,7 +78,8 @@ abstract class Pokemon extends Entity{
 	 */
 	public String tackle(Pokemon p){
 		//Feel Free to Adjust Damage
-		this.takeDamage(1);
+		int damage = 1;
+		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
 		return this.getName() + " uses Tackle on " + p.getName();	
 	}
 	
@@ -83,7 +90,8 @@ abstract class Pokemon extends Entity{
 	 */
 	public String punch(Pokemon p){
 		//Feel Free to Adjust Damage
-		this.takeDamage(1);
+		int damage = 1;
+		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
 		return this.getName() + " uses Punch on " + p.getName();	
 	}
 	

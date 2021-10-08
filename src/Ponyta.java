@@ -3,11 +3,11 @@
  * @reference Math.Random() Code: https://www.geeksforgeeks.org/java-math-random-method-examples/
  * @reference Pokedex: https://www.pokemon.com/us/pokedex/
  */
-public class Charmander extends Pokemon implements Fire{
+public class Ponyta extends Pokemon implements Fire{
 	
-	public Charmander() {
-		//HP is typically 70 on the cards.		
-		super("Charmander", 70);
+	public Ponyta() {
+		//HP is typically 60 on the fire type cards.		
+		super("Ponyta", 60);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class Charmander extends Pokemon implements Fire{
 	 */
 	public String ember(Pokemon p) {
 		int minD = 0;
-		int maxD = 3;
+		int maxD = 4;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
@@ -40,8 +40,8 @@ public class Charmander extends Pokemon implements Fire{
 	 * @return Dialogue for Fire Blast
 	 */
 	public String fireBlast(Pokemon p) {
-		int minD = 1;
-		int maxD = 4;
+		int minD = 2;
+		int maxD = 5;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
@@ -55,7 +55,7 @@ public class Charmander extends Pokemon implements Fire{
 	 */
 	public String firePunch(Pokemon p) {
 		int minD = 1;
-		int maxD = 3;
+		int maxD = 4;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));

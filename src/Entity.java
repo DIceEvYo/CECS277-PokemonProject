@@ -1,5 +1,5 @@
 
-public class Entity {
+abstract class Entity {
 	
 	private String name;
 	private int hp;
@@ -73,8 +73,8 @@ public class Entity {
 	 * @return s - String Value
 	 */
 	public String toString() {
-		//todo
-		String s = "Name: " + this.name + "    Current Hp: " + this.hp + "    Max Hp: " + this.maxHP;
+		//TODO
+		String s = "Name: " + this.name + "\nCurrent Hp: " + this.hp + "\nMax Hp: " + this.maxHP;
 		return s;
 	}
 }

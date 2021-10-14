@@ -34,12 +34,13 @@ public class Map {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public char getCharAtLoc(Point p) {
-		return 0;
-		
+		if(this.revealed[p.x][p.y]) {
+			return this.map[p.x][p.y];	
+		}
+		return 'X';
 	}
 	
 	public String mapToString(Point p) {
@@ -55,20 +56,26 @@ public class Map {
 			mapS = mapS + "\n";
 		}
 		return mapS;
-		
 	}
 	
 	public Point findStart() {
-		return null;
-		
+		Point pt = null;
+		for(int y = 0; y < 5; y++) {
+			for(int x = 0; x < 5; x++) {
+				if (Character.toString(this.map[x][y]).equalsIgnoreCase("s")) {
+					pt.setLocation(x, y);
+				} 
+			}	
+		}
+		return pt;
 	}
 	
 	public void reveal(Point p) {
-		
+		this.revealed[p.x][p.y] = true;
 	}
 	
 	public void removeCharAtLoc(Point p) {
-		
+		this.map[p.x][p.y] = '*';
 	}
 	
 }

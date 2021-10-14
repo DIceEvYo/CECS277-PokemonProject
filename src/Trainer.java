@@ -13,11 +13,10 @@ public class Trainer {
 	public Trainer(String n, Pokemon p, Map m) {
 		this.map = m;
 		this.pokemon.add(p);
-		
 	}
 	
 	public int getMoney() {
-		
+		return this.money;
 	}
 	
 	/**
@@ -35,7 +34,7 @@ public class Trainer {
 	}
 	
 	public void receiveMoney(int amt) {
-		
+		this.money += amt;
 	}
 	
 	/**
@@ -71,7 +70,7 @@ public class Trainer {
 	}
 	
 	public void receivePokeball() {
-		
+		this.pokeballs += 1;
 	}
 	
 	public boolean catchPokemon(Pokemon p) {

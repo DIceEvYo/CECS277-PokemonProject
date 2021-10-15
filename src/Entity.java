@@ -69,11 +69,10 @@ abstract class Entity {
 	}
 	
 	/**
-	 * ...
+	 * Generates a String providing information about the provided entity
 	 * @return s - String Value
 	 */
 	public String toString() {
-		//TODO
 		String s = "Name: " + this.name + "\nCurrent Hp: " + this.hp + "\nMax Hp: " + this.maxHP;
 		return s;
 	}

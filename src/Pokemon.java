@@ -32,7 +32,6 @@ abstract class Pokemon extends Entity{
 
 	}
 
-	//TODO Subclasses MUST Implement these methods.
 	abstract String getSpecialMenu();
 	abstract int getNumSpecialMenuItems();
 	abstract String specialAttack(Pokemon p, int move);

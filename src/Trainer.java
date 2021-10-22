@@ -30,6 +30,7 @@ public class Trainer extends Entity{
 		this.map = m;
 		this.pokemon.add(p);
 		this.name = n;
+		this.loc = this.map.findStart();
 	}
 	
 	/**
@@ -131,15 +132,22 @@ public class Trainer extends Entity{
 	 * @return True or False value - Indicator if pokemon has been caught (or not)
 	 */
 	public boolean catchPokemon(Pokemon p) {
+		CheckInput chk = new CheckInput();
 		if(this.hasPokeball()) {
 			this.pokeballs = this.pokeballs -1;
 		}
 		int minC = 0;
-		int maxC = 255;
+		int maxC = 256;
 		int rC = maxC - minC + 1;
 		int M = (int)(Math.random() * rC) + minC;
 		int f = (int)((p.getMaxHp()*255*4)/(p.getHp()*8));
 		if(f>= M) {
+			System.out.println("Success! " + p.getName() + " has been caught!");
+			System.out.println("Would you like to name your new Pokemon?");
+			if(chk.getYesNo()) {
+				System.out.println("Please enter what you would like to name your Pokemon: ");
+				p.name = chk.getString();
+			}
 			this.pokemon.add(p);
 			return true;
 		}

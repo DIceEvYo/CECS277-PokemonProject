@@ -27,7 +27,7 @@ abstract class Pokemon extends Entity{
 	 * {0	1	2}			{Fire	Water	Grass}
 	 * ---------------------------------------------------------------------------------
 	 */
-	static final double[][] battleTable = {{1,.5,2},{2,1,.5},{.5,2,1}};
+	static final double[][] battleTable = {{1,.5,2,3},{2,1,.5,.75},{.5,2,1,.25},{.25,1.25,3,1}};
 	
 	/**
 	 * Initializes abstract class Pokemon
@@ -148,6 +148,8 @@ abstract class Pokemon extends Entity{
 				return 1;
 			} else if (type.equals("Grass")) {
 				return 2;	
+			} else if (type.equals("Ice_Fairy")) {
+				return 3;
 			}
 		}
 		//This should NEVER run

@@ -1,16 +1,16 @@
 /**
- * @project Pokemon CECS 277
+ * @project Touhou CECS 277
  * @author dpaul
- * @class Charmander
+ * @class Cirno (BAKA BAKAAAAAA!!!)
  * @reference CECS 277 – Project 1 Guidelines PDF
  * @reference Math.Random() Code: https://www.geeksforgeeks.org/java-math-random-method-examples/
- * @reference Pokedex: https://www.pokemon.com/us/pokedex/
+ * @reference GamePress.GG: https://gamepress.gg/lostword/character/cirno
+ * @reference Touhou LostWord
  */
-public class Charmander extends Pokemon implements Fire{
+public class Cirno extends Pokemon implements Ice_Fairy{
 	
-	public Charmander() {
-		//HP is typically 70 on the cards.		
-		super("Charmander", 70);
+	public Cirno() {		
+		super("Cirno", 100);
 	}
 
 	/**
@@ -32,45 +32,45 @@ public class Charmander extends Pokemon implements Fire{
 	}
 
 	/**
-	 * Initiates move Ember (Damage Method + Return String)
+	 * Initiates move Icicle Fall (Damage Method + Return String)
 	 * @param Defending Pokemon
-	 * @return Dialogue for Ember
+	 * @return Dialogue for Icicle Fall
 	 */
-	public String ember(Pokemon p) {
-		int minD = 0;
-		int maxD = 4;
+	public String icicleFall(Pokemon p) {
+		int minD = 5;
+		int maxD = 10;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
-		return this.getName() + " uses ember on " + p.getName();
+		return this.getName() + " uses ICICLE FAAAALL on " + p.getName();
 	}
 	
 	/**
-	 * Initiates move Fire Blast (Damage Method + Return String)
+	 * Initiates move Perfect Freeze (Damage Method + Return String)
 	 * @param Defending Pokemon
-	 * @return Dialogue for Fire Blast
+	 * @return Dialogue for Perfect Freeze
 	 */
-	public String fireBlast(Pokemon p) {
-		int minD = 1;
-		int maxD = 5;
+	public String perfectFreeze(Pokemon p) {
+		int minD = 5;
+		int maxD = 10;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
-		return this.getName() + " uses fire blast on " + p.getName();
+		return this.getName() + " uses PERFECT FREEEZE on " + p.getName();
 	}
 	
 	/**
-	 * Initiates move Fire Punch (Damage Method + Return String)
+	 * Initiates move Snowball Earth (Damage Method + Return String)
 	 * @param Defending Pokemon
-	 * @return Dialogue for Fire Punch
+	 * @return Dialogue for Snowball Earth
 	 */
-	public String firePunch(Pokemon p) {
-		int minD = 1;
-		int maxD = 4;
+	public String snowBallEarth(Pokemon p) {
+		int minD = 5;
+		int maxD = 10;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
-		return this.getName() + " uses fire punch on " + p.getName();
+		return this.getName() + " uses Snowball Earth on " + p.getName();
 	}
 	
 	/**
@@ -82,11 +82,11 @@ public class Charmander extends Pokemon implements Fire{
 	String specialAttack(Pokemon p, int move) {
 		switch(move) {
 		case 1:
-			return this.ember(p);
+			return this.icicleFall(p);
 		case 2:
-			return this.fireBlast(p);
+			return this.perfectFreeze(p);
 		case 3:
-			return this.firePunch(p);
+			return this.snowBallEarth(p);
 		default:
 			//This part of the code should never happen.
 			return "You yelled a move, but nothing happened...";

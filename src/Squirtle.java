@@ -38,7 +38,7 @@ public class Squirtle extends Pokemon implements Water{
 	 */
 	public String waterGun(Pokemon p) {
 		int minD = 2;
-		int maxD = 5;
+		int maxD = 6;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
@@ -52,7 +52,7 @@ public class Squirtle extends Pokemon implements Water{
 	 */
 	public String bubbleBeam(Pokemon p) {
 		int minD = 1;
-		int maxD = 3;
+		int maxD = 4;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
@@ -66,7 +66,7 @@ public class Squirtle extends Pokemon implements Water{
 	 */
 	public String waterfall(Pokemon p) {
 		int minD = 1;
-		int maxD = 4;
+		int maxD = 5;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));

@@ -38,7 +38,7 @@ public class Ponyta extends Pokemon implements Fire{
 	 */
 	public String ember(Pokemon p) {
 		int minD = 0;
-		int maxD = 4;
+		int maxD = 5;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
@@ -52,7 +52,7 @@ public class Ponyta extends Pokemon implements Fire{
 	 */
 	public String fireBlast(Pokemon p) {
 		int minD = 2;
-		int maxD = 5;
+		int maxD = 6;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
@@ -66,7 +66,7 @@ public class Ponyta extends Pokemon implements Fire{
 	 */
 	public String firePunch(Pokemon p) {
 		int minD = 1;
-		int maxD = 4;
+		int maxD = 5;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
 		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));

@@ -1,4 +1,9 @@
-
+/**
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @interface Grass
+ * @reference CECS 277 – Project 1 Guidelines PDF
+ */
 public interface Grass{
 	String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
 	int numSpecialMenuItems = 3;

@@ -1,4 +1,9 @@
-
+/**
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @interface Water
+ * @reference CECS 277 – Project 1 Guidelines PDF
+ */
 public interface Water{
 	String specialMenu = "1. Water Gun\n2. Bubble Beam\n3. Waterfall";
 	int numSpecialMenuItems = 3;

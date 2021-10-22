@@ -1,3 +1,9 @@
+/**
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @class Map
+ * @reference CECS 277 – Project 1 Guidelines PDF
+ */
 import java.awt.Point;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,7 +43,13 @@ public class Map {
 			Scanner inputMap = new Scanner(map);
 			int y = 0;
 			while(inputMap.hasNextLine()) {
-				String temp = inputMap.nextLine();
+				String temp2 = inputMap.nextLine();
+				String temp = "";
+				for(int i = 0; i < temp2.length(); i++) {
+					if(!(String.valueOf(temp2.charAt(i)).equals(" "))) {
+						temp = temp + String.valueOf(temp2.charAt(i)); 
+					}
+				}
 				for (int x = 0; x < temp.length(); x++) {
 					this.map[x][y] = temp.charAt(x);
 					this.revealed[x][y] = false;
@@ -94,7 +106,7 @@ public class Map {
 	 * 				point 's'.
 	 */
 	public Point findStart() {
-		Point pt = null;
+		Point pt = new Point();
 		for(int y = 0; y < 5; y++) {
 			for(int x = 0; x < 5; x++) {
 				if (Character.toString(this.map[x][y]).equalsIgnoreCase("s")) {

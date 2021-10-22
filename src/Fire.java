@@ -1,4 +1,9 @@
-
+/**
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @interface Fire
+ * @reference CECS 277 – Project 1 Guidelines PDF
+ */
 public interface Fire{
 	String specialMenu = "1. Ember\n2. Fire Blast\n3. Fire Punch";
 	int numSpecialMenuItems = 3;

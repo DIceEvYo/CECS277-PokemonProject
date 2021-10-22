@@ -1,7 +1,12 @@
-
+/**
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @abstractClass Entity
+ * @reference CECS 277 – Project 1 Guidelines PDF
+ */
 abstract class Entity {
 	
-	private String name;
+	public String name;
 	private int hp;
 	private int maxHP;
 	
@@ -69,11 +74,11 @@ abstract class Entity {
 	}
 	
 	/**
-	 * Generates a String providing information about the provided entity
+	 * Generates a String providing information (mainly HP) about the provided entity
 	 * @return s - String Value
 	 */
 	public String toString() {
-		String s = "Name: " + this.name + "\nCurrent Hp: " + this.hp + "\nMax Hp: " + this.maxHP;
+		String s = this.name + " HP: " + this.hp + "/" + this.maxHP;
 		return s;
 	}
 }

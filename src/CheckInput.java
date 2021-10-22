@@ -1,3 +1,8 @@
+/**
+ * @project Pokemon CECS 277
+ * @author Shannon Cleary 2021
+ * @class CheckInput
+ */
 import java.util.Scanner;
 
 /** 

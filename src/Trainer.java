@@ -1,21 +1,23 @@
 /**
- * 
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @class Trainer
+ * @reference CECS 277 – Project 1 Guidelines PDF
  * @reference Math.Random() Code: https://www.geeksforgeeks.org/java-math-random-method-examples/
  * @reference BulbaGarden, Catch Rate Formula: https://bulbapedia.bulbagarden.net/wiki/Catch_rate
  */
-
 import java.awt.Point;
 import java.util.ArrayList;
 
-public class Trainer {
+public class Trainer extends Entity{
 
 	private String name;
-	private int money;
-	private int potions;
-	private int pokeballs;
-	private Point loc;
+	private int money = 8;
+	private int potions = 3;
+	private int pokeballs = 3;
+	private Point loc = new Point();
 	private Map map;
-	private ArrayList<Pokemon> pokemon;
+	private ArrayList<Pokemon> pokemon = new ArrayList<Pokemon>();
 	
 	/**
 	 * Initializes Trainer
@@ -24,6 +26,7 @@ public class Trainer {
 	 * @param m - Map
 	 */
 	public Trainer(String n, Pokemon p, Map m) {
+		super(n, 25);
 		this.map = m;
 		this.pokemon.add(p);
 		this.name = n;
@@ -83,6 +86,7 @@ public class Trainer {
 	 * @param pokeIndex - Specifies which Pokemon the potion is used on
 	 */
 	public void usePotion(int pokeIndex) {
+		this.potions = this.potions-1;
 		this.getPokemon(pokeIndex).heal();
 	}
 
@@ -92,6 +96,7 @@ public class Trainer {
 	 * @param specHeal - Specifies how much HP the Pokemon recovers
 	 */
 	public void usePotion(int pokeIndex, int specHeal) {
+		this.potions = this.potions-1;
 		this.getPokemon(pokeIndex).heal(specHeal);
 	}
 
@@ -135,6 +140,7 @@ public class Trainer {
 		int M = (int)(Math.random() * rC) + minC;
 		int f = (int)((p.getMaxHp()*255*4)/(p.getHp()*8));
 		if(f>= M) {
+			this.pokemon.add(p);
 			return true;
 		}
 		return false;
@@ -154,9 +160,11 @@ public class Trainer {
 	 * @return character of the map at player's new location if valid move. 
 	 * 		   Else, 'z' is returned prompting player to choose a different choice.
 	 */
-	public char goNorth() {
-		if((((this.loc.y)+1) >= 0) && ((this.loc.y)+1) < this.map.map.length) {
-			this.loc.setLocation(this.loc.x, this.loc.y+1);
+	public char goSouth() {
+		int temp = this.loc.y+1;
+		if(((temp) >= 0) && (temp) < this.map.map[0].length) {
+			this.loc.setLocation(this.loc.x, temp);
+			this.map.reveal(this.loc);
 		} else {
 			//Indicator of invalid move
 			return 'z';
@@ -170,9 +178,11 @@ public class Trainer {
 	 * @return character of the map at player's new location if valid move. 
 	 * 		   Else, 'z' is returned prompting player to choose a different choice.
 	 */
-	public char goSouth() {
-		if((((this.loc.y)-1) >= 0) && ((this.loc.y)-1) < this.map.map.length) {
-			this.loc.setLocation(this.loc.x, this.loc.y-1);
+	public char goNorth() {
+		int temp = this.loc.y-1;
+		if(((temp) >= 0) && (temp) < this.map.map[0].length) {
+			this.loc.setLocation(this.loc.x, temp);
+			this.map.reveal(this.loc);
 		} else {
 			//Indicator of invalid move
 			return 'z';
@@ -187,8 +197,10 @@ public class Trainer {
 	 * 		   Else, 'z' is returned prompting player to choose a different choice.
 	 */
 	public char goEast() {
-		if((((this.loc.x)+1) >= 0) && ((this.loc.x)+1) < this.map.map.length) {
-			this.loc.setLocation(this.loc.x+1, this.loc.y);
+		int temp = this.loc.x+1;
+		if(((temp) >= 0) && (temp) < this.map.map.length) {
+			this.loc.setLocation(temp, this.loc.y);
+			this.map.reveal(this.loc);
 		} else {
 			//Indicator of invalid move
 			return 'z';
@@ -203,8 +215,10 @@ public class Trainer {
 	 * 		   Else, 'z' is returned prompting player to choose a different choice.
 	 */
 	public char goWest() {
-		if((((this.loc.x)-1) >= 0) && ((this.loc.x)-1) < this.map.map.length) {
-			this.loc.setLocation(this.loc.x-1, this.loc.y);
+		int temp = this.loc.x-1;
+		if(((temp) >= 0) && (temp) < this.map.map.length) {
+			this.loc.setLocation(temp, this.loc.y);
+			this.map.reveal(this.loc);
 		} else {
 			//Indicator of invalid move
 			return 'z';
@@ -254,7 +268,7 @@ public class Trainer {
 	public String getPokemonList() {
 		String pokeList = "";
 		for (int i = 0; i < this.pokemon.size(); i++) {
-			pokeList = pokeList + "Pokemon " + i + ": " + this.pokemon.get(i).toString();
+			pokeList = pokeList + (i+1) + ". " + this.pokemon.get(i).toString() + "\n";
 		}
 		return pokeList;
 	}
@@ -264,7 +278,7 @@ public class Trainer {
 	 * @return s - String Value
 	 */
 	public String toString() {
-		String s = "Name: " + this.name + "\nMoney: " + this.money + "\nPotions: " + this.potions + "\nPokeballs: " + this.pokeballs;
+		String s = this.name + " HP: " + this.getHp() + "/" + this.getMaxHp() + "\nMoney: " + this.money + "\nPotions: " + this.potions + "\nPoke Balls: " + this.pokeballs + "\nPokemon\n-------\n" + this.getPokemonList();
 		return s;
 	}
 	

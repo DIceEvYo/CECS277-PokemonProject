@@ -1,5 +1,8 @@
 /**
- * 
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @abstractClass Pokemon
+ * @reference CECS 277 – Project 1 Guidelines PDF
  * @reference "Identifying the Interfaces Implemented by a Class": https://www.eg.bucknell.edu/~mead/Java-tutorial/reflect/class/getInterfaces.html
  */
 abstract class Pokemon extends Entity{
@@ -26,38 +29,70 @@ abstract class Pokemon extends Entity{
 	 */
 	static final double[][] battleTable = {{1,.5,2},{2,1,.5},{.5,2,1}};
 	
-	
+	/**
+	 * Initializes abstract class Pokemon
+	 * @param n - Name of the Pokemon
+	 * @param mHP - Maximum HP of the Pokemon
+	 */
 	public Pokemon(String n, int mHP) {
 		super(n, mHP);
-
 	}
 
 	abstract String getSpecialMenu();
 	abstract int getNumSpecialMenuItems();
 	abstract String specialAttack(Pokemon p, int move);
 	
-	/*TODO
+	/**
+	 * A String that provides a basic menu of what attack types the user can choose
+	 * @return a string providing the choices of attack type
+	 */
 	public String getBasicMenu(){
-		return null;	
+		return "1. Basic Attack\n2. Special Attack";
 	}
 	
+	/**
+	 * An integer that provides information on the amount of attack choice types the player can choose from
+	 * @return the amount of choices the player can select from
+	 */
 	public int getNumBasicMenuItems(){
-		return null;	
+		return 2;	
 	}
 	
+	/**
+	 * Receives the provided input choice (int) and provides dialogue.
+	 * @param Pokemon - provided Pokemon
+	 * @param move - selection provided from the user
+	 */
 	public String basicAttack(Pokemon p, int move){
-		return null;	
+		switch(move) {
+		case 1:
+			return this.slam(p);
+		case 2:
+			return this.tackle(p);
+		case 3:
+			return this.punch(p);
+		default:
+			//This part of the code should never happen.
+			return "You yelled a move, but nothing happened...";
+		}
 	}
 	
+	/**
+	 * A String that provides a basic attack menu of what attacks the user can choose.
+	 * @return a string providing the choices of attack
+	 */
 	public String getAttackMenu(){
-		return null;	
+		return "1. Slam\n2. Tackle\n3. Punch";	
 	}
 	
+	/**
+	 * An integer that provides information on the amount of attacks the player can choose from
+	 * @return the amount of attacks the player can choose from
+	 */
 	public int getNumAttackItems(){
-		return null;	
+		return 3;	
 	}
-	*/
-	
+
 	/**
 	 * Initiates move Slam (Damage Method + Return String)
 	 * @param Defending Pokemon
@@ -103,7 +138,7 @@ abstract class Pokemon extends Entity{
 	 * @return Pokemon Type Value
 	 */
 	public int getType(){
-		String type = null;
+		String type = "";
 		Class[] intf = this.getClass().getInterfaces();
 		for(int i = 0; i < intf.length; i++) {
 			type = intf[i].getName();

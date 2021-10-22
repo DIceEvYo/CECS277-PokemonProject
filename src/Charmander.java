@@ -1,5 +1,8 @@
 /**
- * 
+ * @project Pokemon CECS 277
+ * @author dpaul
+ * @class Charmander
+ * @reference CECS 277 – Project 1 Guidelines PDF
  * @reference Math.Random() Code: https://www.geeksforgeeks.org/java-math-random-method-examples/
  * @reference Pokedex: https://www.pokemon.com/us/pokedex/
  */
@@ -10,11 +13,19 @@ public class Charmander extends Pokemon implements Fire{
 		super("Charmander", 70);
 	}
 
+	/**
+	 * A String that provides a special menu of what attack types the user can choose based on the Pokemon's type
+	 * @return a string providing the choices of special attack type
+	 */
 	@Override
 	String getSpecialMenu() {
 		return specialMenu;
 	}
 
+	/**
+	 * An integer that provides information on the amount of special attack choice types the player can choose from
+	 * @return the amount of choices the player can select from
+	 */
 	@Override
 	int getNumSpecialMenuItems() {
 		return numSpecialMenuItems;
@@ -30,7 +41,7 @@ public class Charmander extends Pokemon implements Fire{
 		int maxD = 3;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
-		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
+		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
 		return this.getName() + " uses ember on " + p.getName();
 	}
 	
@@ -44,7 +55,7 @@ public class Charmander extends Pokemon implements Fire{
 		int maxD = 4;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
-		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
+		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
 		return this.getName() + " uses fire blast on " + p.getName();
 	}
 	
@@ -58,7 +69,7 @@ public class Charmander extends Pokemon implements Fire{
 		int maxD = 3;
 		int rD = maxD - minD + 1;
 		int damage = (int)(Math.random() * rD) + minD;
-		this.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
+		p.takeDamage((int)(damage * this.battleTable[this.getType()][p.getType()]));
 		return this.getName() + " uses fire punch on " + p.getName();
 	}
 	
@@ -69,7 +80,6 @@ public class Charmander extends Pokemon implements Fire{
 	 */
 	@Override
 	String specialAttack(Pokemon p, int move) {
-		String attack;
 		switch(move) {
 		case 1:
 			return this.ember(p);

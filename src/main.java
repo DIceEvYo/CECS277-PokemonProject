@@ -1,6 +1,6 @@
 /**
  * @project Pokemon CECS 277
- * @author dpaul, hly, hngo
+ * @author dpaul
  * @class Main
  * @disclaimer Do not own any of the characters
  * @reference CECS 277 – Project 1 Guidelines PDF
